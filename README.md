@@ -1,52 +1,56 @@
-📘 Project Braille Plotter Bot: Making Tactile Graphics and Braille Accessible  
-Vedant Garg
+📘 Project Sketchvengers: A Braille Plotter Bot Making Tactile Graphics and Braille Accessible  
+Vedant Garg, Prabhav Joshi, Raghav Dalvie, Krish Kapur
 
 ---
 
 ### Problem Statement
 
-Blind and visually impaired individuals often lack access to tactile graphics and printed Braille resources due to the absence of easy, affordable, and open-source tools. Existing solutions are expensive, limited in flexibility, or too technical for everyday users like educators and students.
+Millions of blind and visually impaired individuals often lack access to tactile graphics and printed Braille resources due to the absence of easy, affordable, and open-source tools. Existing solutions are expensive, limited in flexibility, or too technical for everyday users like educators and students.
 
 ---
 
 ### Our Solution
 
-We developed a set of Inkscape extensions that allow users to:
-- Convert any typed text into properly spaced Braille
-- Plot Braille-ready SVG files
-- Create tactile diagrams and images using evenly spaced Braille-style dots
+We are building a **Braille Plotter Bot**, a low-cost, open-source machine capable of transforming digital content into tactile Braille and diagrams. The bot receives commands from Inkscape and plots:
 
-This enables educators, assistive technology developers, and makerspaces to generate customized tactile learning materials with minimal cost and effort.
+- Typed text converted into embossed Braille
+- Braille-ready SVG files
+- Tactile images made of dotted patterns for shapes, outlines, and textures
+
+The bot uses a precision-controlled pen mechanism to emboss dots on thick paper, making it ideal for educational institutions, maker labs, and accessibility-focused classrooms.
 
 ---
 
 ### Hardware Used
 
-🖨️ Output & Plotting  
-- Braille-Compatible Plotter (e.g., modified pen plotter or CNC-based Braille embosser)  
-- 180gsm+ Paper or plastic tactile sheets
+🖨️ Plotting Mechanism  
+- EasyDraw V2 "(frame)"
+- Braille-embossing pen mount  
+- 180gsm+ Paper or plastic tactile sheets  
 
-🔌 Optional Electronics  
-- Raspberry Pi (if running standalone)  
-- Arduino or ESP32 (if automating hardware triggering)  
+🧠 Controller & Power  
+- Arduino Uno / ESP32 – For motion control and serial communication  
+- CNC Shield (for Arduino)  
+- A4988 Stepper Drivers  
+- Power Supply Unit (12V recommended)  
 
 ---
 
 ### Software Used
 
-🧩 **Inkscape**  
-Main software interface used for design and plotting
+🧩 **Inkscape + Custom Extensions**  
+Used to convert typed text and images into Braille or dotted tactile graphics.
 
 🧰 **Python**  
-Custom extensions written to generate and manipulate Braille-compatible SVG files  
-- SVG Path manipulation  
-- Text-to-Braille conversion  
-- Dot grid generation for tactile images
+To process SVG files, convert to coordinate data, and send to the plotter via serial commands.
 
-📦 **Libraries Used**  
-- `lxml` – For SVG/XML parsing  
-- `inkex` – Inkscape extension API  
-- `os`, `math`, `re` – Built-in modules for text and coordinate handling
+⚙️ **GRBL Firmware** *(if using Arduino)*  
+Handles G-code and low-level stepper movement logic.
+
+📦 Libraries & Tools  
+- `pyserial` – For communication with Arduino/ESP32  
+- `svgpathtools` – For SVG path parsing  
+- `inkex`, `lxml` – For Inkscape extension development  
 
 ---
 
@@ -72,3 +76,6 @@ Creative Commons Attribution 4.0 International License</a>.
 **Makers Asylum**  
 Vedant Garg  
 [github.com/Vedant-Garg](https://github.com/Vedant-Garg)  
+Prabhav Joshi  
+Raghav Dalvie  
+Krish Kapur  
